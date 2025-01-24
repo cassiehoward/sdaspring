@@ -1,0 +1,381 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #9335DB;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body {
+    background: linear-gradient(#9335DB, #DB35B9);
+    color: #3c3c3b;
+    padding-bottom: 30px;
+    min-height: 100vh;
+}
+
+.class1 {
+ color: red;
+}
+
+.class2 {
+ color: blue;
+}
+
+.class3 {
+ color: black;
+}
+
+.class4 {
+ color: green;
+}
+
+
+.body-box {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 250px;
+    width: 100%;
+    margin: 30px 0;
+}
+
+header img {
+    width: 28%;
+    height: auto;
+    background: linear-gradient(45deg, #DB35B9, #ba7de8);;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    padding: 0;
+    cursor: pointer;
+}
+
+header img:hover {
+    padding: 10px;
+}
+
+main {
+    width: 100%;
+    background: white;
+    padding: 20px 30px;
+    padding-bottom: 10px;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 700;
+    border-bottom: #fff 2px solid;
+    color: #DB35B9;
+}
+
+nav a:hover {
+    color: #9335DB;
+    border-bottom: #9335DB 2px solid;
+}
+
+h1 {
+    color: #9335DB;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 20px;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    color: #9335DB;
+}
+
+ul li ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+    color: #DB35B9;
+}
+
+ul li ul li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    color: #DB35B9;
+}
+
+ul li h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #9335DB;
+    font-weight: 700;
+}
+
+
+table {
+    width: 85%;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+input, button, tbody a {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 1rem;
+    border: 2px solid #9335DB;
+    background: white;
+    color: #9335DB;
+    padding: 8px 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 40px; /* Set width equal to height */
+    height: 40px; /* Set height to match input field */
+    border: 2px solid #9335DB;
+    background-color: white;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
+    appearance: none;
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #9335DB;
+    border-color: #9335DB;
+}
+
+form select {
+    font-size: 1rem;
+    border: 2px solid #DB35B9;
+    background: white;
+    color: #9335DB;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form select:focus {
+    border-color: #9335DB;
+    box-shadow: 0 0 5px rgba(147, 53, 219, 0.5);
+    outline: none;
+}
+
+.add-food {
+    margin-bottom: 2rem;
+}
+
+.add-food label, .add-food select, .add-food button {
+    display: block;
+    margin: 0 5px;
+}
+
+table a {
+    display: block;
+    text-decoration: none;
+}
+
+button, tbody a {
+    background: linear-gradient(#9335DB, #DB35B9);
+    color: #3c3c3b;
+}
+
+label {
+    margin-right: 4px;
+}
+
+#birds {
+    border-spacing: 0px;
+}
+
+#add, #filter {
+    width: 85%;
+    margin-bottom: 2rem;
+}
+
+#filter {
+    width: 62%;
+}
+
+#filter {
+    justify-content: space-around;
+}
+
+.div-add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+thead, tfoot {
+    font-size: 1.2rem;
+}
+
+table, th, td {
+    border: 2px solid #DB35B9;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+#birds tr:hover td {
+    cursor: pointer;
+    background-color: #dcbef4;
+    color: #fff;
+    transition: all 0.25s;
+}
+
+.has-food td {
+    color: #9335DB;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#birds .has-food:hover td {
+    color:  #DB35B9;
+    background-color: #dcbef4;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    font-size: 2rem;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    width: 100%;
+    background: white;
+    border-radius: 0 0 30px 30px;
+    padding-bottom: 20px;
+}
+
+footer a {
+    color: #9335DB;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #DB35B9;
+}
+
+@media (max-width: 925px) {
+    body {
+        padding-bottom: 60px;
+    }
+
+    .body-box {
+        width: auto;
+        margin: 0 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        margin: 5px 0;
+        display: block;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    table {
+        width: 90vw;
+        margin-bottom: 1rem;
+    }
+
+    #add, #filter {
+        width: 90vw;
+    }
+}
+
+@media (max-width: 785px) {
+    #add {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div-add {
+        margin-bottom: 10px;
+    }
+
+    #add button {
+        width: 25%;
+    }
+
+    header {
+        margin: 0;
+    }
+
+
+}
+
+@media (max-width: 510px) {
+    table, thead, tfoot, table input {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    nav {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    table {
+        width: 90vw;
+        margin-bottom: 0.5rem;
+    }
+
+    #add, #filter {
+        width: 90vw;
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Bird Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="body-box">
+    <header>
+
+    </header>
+
+    <main>
+        <h1 th:text="${bird.name}"></h1>
+
+        <ul>
+            <li th:text="${bird.id}"></li>
+            <li th:text="${bird.canFly}"></li>
+            <li th:text="${bird.weight}"></li>
+            <li th:if="${bird.trackingDevice != null}">
+                <h4>Tracking Device</h4>
+                <ul>
+                    <!-- na ukazku vnorenia takto inline v html nepiste -->
+                    <li>
+                        <strong>Serial Number: </strong>
+                        <span th:text="${bird.trackingDevice.serialNumber}"></span>
+                    </li>
+                    <!-- na ukazku vnorenia takto inline v html nepiste -->
+                    <li><strong>Activation Date: </strong> <span th:text="${bird.trackingDevice.activationDate}"></span>
+                    </li> <!-- takto inline v html piste -->
+                </ul>
+            </li>
+            <li th:if="${bird.nest != null}">
+                <h4>Nest Information</h4>
+                <ul>
+                    <li><strong>Name: </strong> <span th:text="${bird.nest.name}"></span></li>
+                    <li><strong>Capacity: </strong> <span th:text="${bird.nest.capacity}"></span></li>
+                    <li><strong>Material: </strong> <span th:text="${bird.nest.material}"></span></li>
+                </ul>
+            </li>
+            <li th:if="${bird.foods.size() > 0}">
+                <h4>Foods</h4>
+                <ul>
+                    <li th:each="food : ${bird.foods}"><span th:text="${food.name}"></span> - <span
+                            th:text="${food.calories}"></span> calories
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <form class="add-food" th:action="@{/bird-details/{birdId}/add-food(birdId=${bird.id})}" method="post">
+            <label for="foodSelect">Add Food:</label>
+            <select name="foodId" id="foodSelect" required>
+                <option value="" disabled selected>Select a food</option>
+                <option th:each="food : ${foods}" th:value="${food.id}" th:text="${food.name}"></option>
+            </select>
+
+            <button type="submit">Add Food</button>
+        </form>
+
+
+        <form th:replace="~{fragments/add-form :: create-bird-form}"></form>
+
+    </main>
+
+    <footer>
+        <p>©2024 <a th:href="@{/}">SDA</a></p>
+    </footer>
+</div>
+<script th:src="@{/scripts/script.js}"></script>
+</body>
+</html>
