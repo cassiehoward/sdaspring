@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Birds</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style></style>
+</head>
+<body>
+<div class="body-box">
+    <header>
+
+    </header>
+
+    <main>
+        <h1 th:text="${welcomeString ?: 'welcomeString is not set'}">Welcome to the BirdHouse</h1>
+
+        <p th:unless="${birds.size()}">No birds in Birdhouse</p>
+
+        <nav>
+            <a th:href="@{/}">Home</a>
+            <a th:href="@{/flying-jpql}">Find flying birds JPQL</a>
+            <a th:href="@{/flying-native}">Find flying birds native</a>
+        </nav>
+
+        <form id="filter" th:action="@{/}" method="get">
+            <div>
+                <label for="search">Search Birds by Name:</label>
+                <input id="search" type="text" name="search">
+            </div>
+            <button type="submit">Search</button>
+        </form>
+
+        <table id="birds" th:if="${birds.size() > 0}">
+            <thead>
+            <tr>
+                <th>
+                    <a th:href="@{/(sortBy='name')}">Name</a>
+                </th>
+                <th>
+                    <a th:href="@{/(sortBy='canFly')}">Can Fly</a>
+                </th>
+                <th>
+                    <a th:href="@{/(sortBy='weight')}">Weight</a>
+                </th>
+                <th>Details</th>
+                <th>Delete</th>
+                <th>Increase Weight</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="bird : ${birds}" th:object="${bird}"
+                th:classappend="${bird.foods.size() > 0} ? 'has-food' : ''">
+                <!--          <td th:text="${bird.getName()}"></td>-->
+                <!--            <td th:text="${bird.isCanFly()}"></td>-->
+                <!--            <td th:text="${bird.getWeight()}"></td>-->
+                <!--            <td th:text="${bird.name}"></td>-->
+                <!--            <td th:text="${bird.canFly}"></td>-->
+                <!--            <td th:text="${bird.weight}"></td> -->
+                <td th:text="*{name}"></td>
+                <td th:text="*{canFly}"></td>
+                <td th:text="*{weight}"></td>
+                <td>
+                    <!--                <a th:href="|/bird-details/${bird.id}|">View details</a>-->
+                    <a th:href="@{/bird-details/{bird}(bird=${bird.id})}">View</a>
+                </td>
+                <td>
+                    <form method="get" th:action="@{/delete/{id} (id = *{id})}">
+                        <button type="submit">Remove</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="get" th:action="@{/increase/{id} (id = *{id})}">
+                        <button type="submit">+50 g</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <form th:replace="~{fragments/add-form :: create-bird-form}"></form>
+
+    </main>
+
+    <footer>
+        <p>©2024 <a th:href="@{/}">SDA</a></p>
+    </footer>
+</div>
+<script th:src="@{/scripts/script.js}"></script>
+</body>
+</html>

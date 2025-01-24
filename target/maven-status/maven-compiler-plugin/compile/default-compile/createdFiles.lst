@@ -1,0 +1,17 @@
+com\sda\sdaspring\controllers\BirdController.class
+com\sda\sdaspring\models\Bird.class
+com\sda\sdaspring\repositories\BirdRepository.class
+com\sda\sdaspring\repositories\NestRepository.class
+com\sda\sdaspring\controllers\BirdRestController.class
+com\sda\sdaspring\models\TrackingDevice.class
+com\sda\sdaspring\models\dtos\BirdDTO.class
+com\sda\sdaspring\models\BaseEntity.class
+com\sda\sdaspring\models\Food.class
+com\sda\sdaspring\models\Nest.class
+com\sda\sdaspring\services\FoodServiceImpl.class
+com\sda\sdaspring\controllers\MainController.class
+com\sda\sdaspring\repositories\FoodRepository.class
+com\sda\sdaspring\SdaspringApplication.class
+com\sda\sdaspring\services\FoodService.class
+com\sda\sdaspring\services\BirdServiceImpl.class
+com\sda\sdaspring\services\BirdService.class
